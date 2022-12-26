@@ -1,13 +1,16 @@
 package main
 
 import (
-	"fmt"
 	service "tinyURL/services/url_generator"
+	logging "tinyURL/utils"
 )
 
 func main() {
-	fmt.Println("Hello, playground")
+
+	logger := logging.NewLogger()
+
+	logger.Infoln("Hello, playground")
 	url := "https://tinyurl.com/api-create.php?url=https%"
 	res := service.GenerateURL(url, "https://tinyurl.com")
-	fmt.Println(res)
+	logger.Infoln(res)
 }
