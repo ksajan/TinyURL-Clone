@@ -56,6 +56,7 @@ func ShortenURL(c *fiber.Ctx) error {
 		body.ShortURL = record.Bins["shortURL"].(string)
 		return c.JSON(fiber.Map{
 			"shortURL": body.ShortURL,
+			"longURL":  body.LongURL,
 		})
 	}
 }
