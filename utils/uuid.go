@@ -12,7 +12,7 @@ import (
 func GenerateUUID(data string) string {
 	fmt.Println("Generating UUID version 3 using MD5")
 	uuidBytes := uuid.NewMD5(uuid.NameSpaceURL, []byte(data))
-	fmt.Printf("UUID: %s./n", uuidBytes.String())
+	fmt.Println("UUID: ", uuidBytes.String())
 	return uuidBytes.String()
 }
 
