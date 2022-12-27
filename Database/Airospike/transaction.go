@@ -3,7 +3,7 @@ package aerospike
 import (
 	"fmt"
 
-	aerospike "github.com/aerospike/aerospike-client-go/v6"
+	aerospike "github.com/aerospike/aerospike-client-go"
 )
 
 var client *aerospike.Client
@@ -23,7 +23,7 @@ func CreateRecordKey(key string) *aerospike.Key {
 	return recordKey
 }
 
-func CreateRecord(key string, BinMap aerospike.BinMap) {
+func AddToRecord(key string, BinMap aerospike.BinMap) {
 	recordKey := CreateRecordKey(key)
 	if recordKey == nil {
 		fmt.Printf("Error while creating record key: %v", key)
@@ -35,14 +35,15 @@ func CreateRecord(key string, BinMap aerospike.BinMap) {
 func CheckRecordExists(key string) bool {
 	recordKey := CreateRecordKey(key)
 	if recordKey == nil {
-		fmt.Printf("Error while creating record key: %v", key)
+		fmt.Println("Error while creating record key: ", key)
 		return false
 	}
 	exists, err := client.Exists(readPolicy, recordKey)
 	if err != nil {
-		fmt.Printf("Error while checking record exists: %v", err)
+		fmt.Println("Error while checking record exists: ", err)
 		return false
 	}
+	fmt.Println("Record exists: ", exists)
 	return exists
 }
 

@@ -1,7 +1,7 @@
 package aerospike
 
 import (
-	aerospike "github.com/aerospike/aerospike-client-go/v6"
+	aerospike "github.com/aerospike/aerospike-client-go"
 )
 
 var writePolicy = CreateWritePolicy()
@@ -21,7 +21,6 @@ func CreateWritePolicy() *aerospike.WritePolicy {
 
 func CreateReadPolicy() *aerospike.BasePolicy {
 	policy := aerospike.NewPolicy()
-	policy.SocketTimeout = 300
 	return policy
 }
 

@@ -1,11 +1,11 @@
 package aerospike
 
 import (
-	aerospike "github.com/aerospike/aerospike-client-go/v6"
+	aerospike "github.com/aerospike/aerospike-client-go"
 )
 
 func GetAerospikeClient() (*aerospike.Client, error) {
-	client, err := aerospike.NewClient("localhost", 3000)
+	client, err := aerospike.NewClient("192.168.1.41", 3000)
 	if err != nil {
 		return nil, err
 	}

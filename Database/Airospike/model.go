@@ -9,7 +9,6 @@ type Form struct {
 type TinyURL struct {
 	LongURL   string    `json:"long_url"`
 	ShortURL  string    `json:"short_url"`
-	Expiry    time.Time `json:"expiry"`
 	CreatedAt time.Time `json:"created_at"`
 }
 
