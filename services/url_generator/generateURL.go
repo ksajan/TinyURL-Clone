@@ -8,8 +8,8 @@ import (
 
 // GenerateURL generates a URL based on the given parameters
 
-func GenerateURL(url string, basePath string) string {
+func GenerateURL(LongURL string, baseDomainUrl string) (string, string) {
 	fmt.Println("Generating URL")
-	bEncodedValue := utils.Base64URLEncoding(utils.GenerateUUID(url))
-	return strings.Join([]string{basePath, bEncodedValue[:7]}, "/")
+	bEncodedValue := utils.Base64URLEncoding(utils.GenerateUUID(LongURL))
+	return strings.Join([]string{baseDomainUrl, bEncodedValue[:7]}, "/"), bEncodedValue[:7]
 }
